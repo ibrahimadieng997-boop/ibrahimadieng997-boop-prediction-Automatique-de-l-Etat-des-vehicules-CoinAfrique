@@ -334,35 +334,61 @@ def _build_kpi_html(history_df):
 
 
 # ================================================================
-# 8. CSS PROFESSIONNEL
+# 8. CSS PROFESSIONNEL (thème rouge / blanc foncé)
 # ================================================================
 
 CUSTOM_CSS = """
 <style>
-.stApp { background: #f4f7fb; }
+/* ---------- Fond général et texte de base ---------- */
+.stApp { background: #efe7e1; }
+.stApp h1, .stApp h2, .stApp h3 { color: #7f0d1f; }
+.stMarkdown p { color: #2b1114; }
+[data-testid="stWidgetLabel"] p { color: #2b1114; font-weight: 600; }
 
+/* ---------- Onglets ---------- */
+.stTabs [data-baseweb="tab"] { color: #5a3a3d; font-weight: 600; }
+.stTabs [aria-selected="true"] { color: #b3122b; }
+.stTabs [data-baseweb="tab-highlight"] { background-color: #b3122b; }
+
+/* ---------- Boutons principaux ---------- */
+button[kind="primary"],
+button[data-testid="stBaseButton-primary"] {
+    background-color: #b3122b;
+    border: 1px solid #b3122b;
+    color: #ffffff;
+}
+button[kind="primary"]:hover,
+button[data-testid="stBaseButton-primary"]:hover {
+    background-color: #7f0d1f;
+    border-color: #7f0d1f;
+    color: #ffffff;
+}
+
+/* ---------- En-tête ---------- */
 .dashboard-header {
-    background: #ffffff;
+    background: #fffaf7;
     border-radius: 18px;
     padding: 30px 35px;
     margin-bottom: 25px;
-    border: 1px solid #dce3eb;
-    border-left: 7px solid #0b3d91;
-    box-shadow: 0 6px 20px rgba(16, 42, 67, 0.08);
+    border: 1px solid #dccfc7;
+    border-left: 7px solid #b3122b;
+    box-shadow: 0 6px 20px rgba(127, 13, 31, 0.10);
 }
 .dashboard-title {
-    color: #0b2d5c;
+    color: #7f0d1f;
     font-size: 34px;
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: -0.5px;
 }
 .dashboard-subtitle {
-    color: #536579;
+    color: #5a3a3d;
     font-size: 16px;
     margin-top: 10px;
     font-weight: 500;
 }
+
+/* ---------- KPI ---------- */
 .kpi-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -370,54 +396,61 @@ CUSTOM_CSS = """
     margin-bottom: 28px;
 }
 .kpi-card {
-    background: #ffffff;
+    background: #fffaf7;
     border-radius: 16px;
     padding: 23px;
     min-height: 145px;
-    border: 1px solid #dce3eb;
-    box-shadow: 0 5px 18px rgba(16, 42, 67, 0.07);
+    border: 1px solid #dccfc7;
+    box-shadow: 0 5px 18px rgba(127, 13, 31, 0.08);
 }
-.kpi-blue { border-top: 5px solid #1769aa; }
-.kpi-green { border-top: 5px solid #159447; }
-.kpi-orange { border-top: 5px solid #e28a00; }
-.kpi-purple { border-top: 5px solid #7048a8; }
+.kpi-blue   { border-top: 5px solid #7f0d1f; }
+.kpi-green  { border-top: 5px solid #b3122b; }
+.kpi-orange { border-top: 5px solid #d64550; }
+.kpi-purple { border-top: 5px solid #4a0a14; }
 .kpi-icon { font-size: 28px; margin-bottom: 8px; }
-.kpi-title { color: #586779; font-size: 13px; font-weight: 700; letter-spacing: 0.4px; }
-.kpi-value { color: #102a43; font-size: 30px; font-weight: 800; margin-top: 5px; }
-.kpi-positive { color: #159447; font-size: 13px; font-weight: 700; margin-top: 7px; }
+.kpi-title { color: #5a3a3d; font-size: 13px; font-weight: 700; letter-spacing: 0.4px; }
+.kpi-value { color: #2b1114; font-size: 30px; font-weight: 800; margin-top: 5px; }
+.kpi-positive { color: #b3122b; font-size: 13px; font-weight: 700; margin-top: 7px; }
+
+/* ---------- Titres de section ---------- */
 .section-title {
-    background: #ffffff;
-    color: #102a43;
+    background: #fffaf7;
+    color: #2b1114;
     font-size: 21px;
     font-weight: 800;
     padding: 17px 20px;
     border-radius: 13px;
-    border-left: 5px solid #1769aa;
+    border-left: 5px solid #b3122b;
     margin-top: 25px;
     margin-bottom: 17px;
-    box-shadow: 0 4px 14px rgba(16,42,67,0.05);
+    box-shadow: 0 4px 14px rgba(127, 13, 31, 0.06);
 }
+
+/* ---------- Cartes d'information ---------- */
 .info-card {
-    background: #ffffff;
+    background: #fffaf7;
     border-radius: 14px;
     padding: 22px;
-    border: 1px solid #dce3eb;
-    box-shadow: 0 4px 15px rgba(16,42,67,0.05);
+    border: 1px solid #dccfc7;
+    box-shadow: 0 4px 15px rgba(127, 13, 31, 0.06);
     min-height: 180px;
 }
-.info-card h3 { color: #102a43; font-size: 18px; font-weight: 800; margin-top: 0; }
-.info-card p { color: #536579; font-size: 14px; line-height: 1.7; }
+.info-card h3 { color: #7f0d1f; font-size: 18px; font-weight: 800; margin-top: 0; }
+.info-card p { color: #4a2c2f; font-size: 14px; line-height: 1.7; }
+
+/* ---------- Légende ---------- */
 .legend-box {
-    background: #ffffff;
+    background: #fffaf7;
     padding: 18px 20px;
     border-radius: 13px;
-    border: 1px solid #dce3eb;
-    box-shadow: 0 4px 14px rgba(16,42,67,0.05);
+    border: 1px solid #dccfc7;
+    box-shadow: 0 4px 14px rgba(127, 13, 31, 0.06);
     margin-top: 15px;
 }
-.legend-title { color: #102a43; font-weight: 800; font-size: 15px; margin-bottom: 12px; }
-.legend-item { display: inline-block; color: #536579; font-size: 14px; margin-right: 25px; margin-bottom: 8px; }
+.legend-title { color: #7f0d1f; font-weight: 800; font-size: 15px; margin-bottom: 12px; }
+.legend-item { display: inline-block; color: #4a2c2f; font-size: 14px; margin-right: 25px; margin-bottom: 8px; }
 
+/* ---------- Responsive ---------- */
 @media (max-width: 1000px) { .kpi-container { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) {
     .kpi-container { grid-template-columns: 1fr; }
