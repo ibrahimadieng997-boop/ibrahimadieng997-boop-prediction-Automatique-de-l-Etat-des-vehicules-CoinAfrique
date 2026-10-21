@@ -43,7 +43,7 @@ L'application est un **tableau de bord web interactif**, utilisable sans aucune 
 
 ## 🚀 Lancer le projet
 Lancer l'application
-[Lien vers l'application: https://segmentation-patients-donnees-sante.streamlit.app/]
+[Lien vers l'application: https://prediction-automatique-de-l-etat-des-vehicules-coinafrique.streamlit.app/]
 
 
 ## 📁 Format du CSV (import en masse)
