@@ -43,19 +43,10 @@ L'application est un **tableau de bord web interactif**, utilisable sans aucune 
 
 ## 🚀 Lancer le projet
 
-```bash
-# 1. Cloner le dépôt
-git clone https://github.com/ibrahimadieng997boop/<nom-du-repo>.git
-cd <nom-du-repo>
-
-# 2. Installer les dépendances
-pip install -r requirements.txt
-
-# 3. Lancer l'application
-streamlit run app.py
 ```
-
-L'application s'ouvre sur `http://localhost:8501`.
+Lancer l'application
+[Lien vers l'application: https://segmentation-patients-donnees-sante.streamlit.app/]
+```
 
 ## 📁 Format du CSV (import en masse)
 
