@@ -42,11 +42,9 @@ L'application est un **tableau de bord web interactif**, utilisable sans aucune 
 `Python` · `Pandas` · `NumPy` · `scikit-learn` · `Machine Learning (classification)` · `Streamlit` · `Sérialisation de modèles (Joblib)` · `Interface utilisateur (HTML/CSS)` · `Traitement de fichiers CSV`
 
 ## 🚀 Lancer le projet
-
-```
 Lancer l'application
 [Lien vers l'application: https://segmentation-patients-donnees-sante.streamlit.app/]
-```
+
 
 ## 📁 Format du CSV (import en masse)
 
